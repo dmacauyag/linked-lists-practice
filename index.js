@@ -67,3 +67,28 @@ LinkedList.prototype.insertAt = function (data, index) {
 
   return this.head
 }
+
+LinkedList.prototype.deleteFirstNode = function () {
+  if (!this.head) return null
+  this.head = this.head.next
+  return this.head
+}
+
+LinkedList.prototype.deleteLastNode = function () {
+  if (!this.head) return null
+
+  if (!this.head.next) {
+    this.head = null
+    return this.head
+  }
+
+  const previousNode = this.head
+  const tail = this.head.next
+
+  while (tail.next !== null) {
+    previousNode = tail
+    tail = tail.next
+  }
+  previousNode.next = null
+  return this.head
+}
