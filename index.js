@@ -15,6 +15,18 @@ function createNewNode (data) {
   return new Node(data)
 }
 
+LinkedList.prototype.getAt = function (index) {
+  let counter = 0
+  let node = this.head
+
+  while (node) {
+    if (counter === index) return node
+    counter++
+    node = node.next
+  }
+  return null
+}
+
 LinkedList.prototype.insertAtBeginning = function (data) {
   const newNode = createNewNode(data)
   newNode.next = this.head
