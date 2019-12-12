@@ -50,3 +50,20 @@ LinkedList.prototype.insertAtEnd = function (data) {
 
   return this.head
 }
+
+LinkedList.prototype.insertAt = function (data, index) {
+  if (!this.head) {
+    this.head = new Node(data)
+    return
+  }
+
+  if (index === 0) return this.insertAtBeginning(data)
+
+  const newNode = createNewNode(data)
+  const previousNode = this.getAt(index - 1)
+
+  newNode.next = previousNode.next
+  previousNode.next = newNode
+
+  return this.head
+}
