@@ -92,3 +92,18 @@ LinkedList.prototype.deleteLastNode = function () {
   previousNode.next = null
   return this.head
 }
+
+LinkedList.prototype.deleteAt = function (index) {
+  if (!this.head) return null
+
+  if (index === 0) return this.deleteFirstNode()
+
+  const previousNode = this.getAt(index - 1)
+  if (!previous || !previous.next) return null
+  previousNode.next = previousNode.next.next
+  return this.head
+}
+
+LinkedList.prototype.deleteList = function () {
+  this.head = null
+}
